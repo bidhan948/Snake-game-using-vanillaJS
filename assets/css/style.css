@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.parent{
+    background: url('../images/background.jpg');
+    height: 100vh;
+    overflow-x: hidden !important;
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.snake_png{
+    position: absolute;
+    right:0;
+    bottom:0;
+    margin-right:-100px;
+    object-fit: none;
+}
