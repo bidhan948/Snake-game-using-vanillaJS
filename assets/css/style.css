@@ -24,9 +24,9 @@
 #board{
     position: absolute;
     margin-top: 4rem;
-    height: 640px;
-    width: 640px; 
-    background-image: linear-gradient(rgb(162, 253, 162),rgb(83, 83, 6));
+    height: 650px;
+    width: 750px; 
+    background-image: linear-gradient(#66FF00,#08753d);
     box-shadow: 8px 8px 8px rgb(65, 216, 65);
     border: 3px solid black;
     display: grid;
@@ -34,14 +34,21 @@
     grid-template-columns: repeat(18,1fr);
 }
 
-.head {
-    background:linear-gradient(rgb(102, 51, 51),rgb(62, 62, 136));
-}
-.food{
-    background:linear-gradient(rgb(102, 51, 51),rgb(62, 62, 136));
+.head::before {
+    font-family: "Font Awesome 5 Free";
+    font-size:2.8rem;
+    color: rgb(66, 3, 3);
+    font-weight: bolder; 
+    content: "\f556";
+    text-shadow: 3px 4px 6px #FF0000;
+
 }
 .snake_body{
-    background:linear-gradient(rgb(224, 21, 21),rgb(12, 12, 231));
+    background:linear-gradient(#1E9600,#FFF200,#FF0000);
+    box-shadow:4px 4px 5px #FFF200;
+    border-radius: 30px;
+    max-height: 40px;
+    max-width: 40px;
 }
 #scoreBox{
     position: absolute;
@@ -58,4 +65,14 @@
     top: 0;
     font-weight: bold;
     font-family: 'Pattaya', sans-serif;
+}
+.food::before{
+    font-family: "Font Awesome 5 Free";
+    font-size:2.5rem;
+    background: -webkit-linear-gradient(rgb(82, 1, 1),#FF0000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bolder; 
+    content: "\f5d1";
+    text-shadow: 3px 4px 6px #FF0000;
 }

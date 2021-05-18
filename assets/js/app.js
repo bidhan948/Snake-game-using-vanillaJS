@@ -4,7 +4,7 @@ const foodSound = new Audio('../SNAKE-GAME/assets/music/food.mp3');
 const gameoverSound = new Audio('../SNAKE-GAME/assets/music/gameover.mp3');
 const moveSound = new Audio('../SNAKE-GAME/assets/music/move.mp3');
 let lastPainTime = 0;
-let speed = 6;
+let speed = 10;
 let score = 0;
 let snakeArr = [
     { x: 13, y: 15 }
@@ -42,6 +42,7 @@ function gameEngine() {
         // gameSound.play();
         moveSound.play();
         score = 0;
+        scoreBox.innerHTML = "Score :" + score;
         snakeArr = [
             { x: 13, y: 15 }
         ];
