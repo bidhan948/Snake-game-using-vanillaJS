@@ -4,6 +4,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+a{
+    text-decoration: none;
+}
 .parent{
     background: url('../images/background.jpg');
     height: 100vh;
@@ -75,4 +78,12 @@
     font-weight: bolder; 
     content: "\f5d1";
     text-shadow: 3px 4px 6px #FF0000;
+}
+.copy_right{
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Pattaya', sans-serif;
+    color: white;
+    position: absolute;
+    bottom:15px;
 }

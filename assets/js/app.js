@@ -4,7 +4,7 @@ const foodSound = new Audio('../SNAKE-GAME/assets/music/food.mp3');
 const gameoverSound = new Audio('../SNAKE-GAME/assets/music/gameover.mp3');
 const moveSound = new Audio('../SNAKE-GAME/assets/music/move.mp3');
 let lastPainTime = 0;
-let speed = 10;
+let speed = 7;
 let score = 0;
 let snakeArr = [
     { x: 13, y: 15 }
@@ -18,7 +18,7 @@ function isCollide(snakeArr) {
             return true;
         }
     }
-    if (snakeArr[0].x <= 0 || snakeArr[0].x >= 18 || snakeArr[0].y <= 0 || snakeArr[0].y >= 18  ) {
+    if (snakeArr[0].x <= 0 || snakeArr[0].x >= 18 || snakeArr[0].y <= 0 || snakeArr[0].y >= 18) {
         return true;
     }
 }
@@ -39,21 +39,27 @@ function gameEngine() {
         moveSound.pause();
         SnakeVelocity = { x: 0, y: 0 };
         alert('Game over press any key to continue');
-        // gameSound.play();
+        gameSound.play();
         moveSound.play();
         score = 0;
         scoreBox.innerHTML = "Score :" + score;
         snakeArr = [
             { x: 13, y: 15 }
         ];
+        speed = 7;
     }
 
     if (snakeArr[0].y == food.y && snakeArr[0].x == food.x) {
         foodSound.play();
         score += 1;
+        if (score > 0 && score <= 3) {
+            speed += 1;
+        } else {
+            speed += 0.5;
+        }
         if (score > hiScoreVal) {
             hiScoreVal = score;
-            localStorage.setItem("hiScore",JSON.stringify(hiScoreVal));
+            localStorage.setItem("hiScore", JSON.stringify(hiScoreVal));
             high_score.innerHTML = "High Score :" + hiScoreVal;
         }
         scoreBox.innerHTML = "Score :" + score;
@@ -71,6 +77,7 @@ function gameEngine() {
     }
     snakeArr[0].x += SnakeVelocity.x;
     snakeArr[0].y += SnakeVelocity.y;
+
     /**** rendering the snakeArr and food******/
 
     // rendering the snakeArr
@@ -99,7 +106,7 @@ function gameEngine() {
 let hiScore = localStorage.getItem("hiScore");
 if (hiScore == null) {
     hiScoreVal = 0;
-    localStorage.setItem("hiScore",JSON.stringify(hiScoreVal));
+    localStorage.setItem("hiScore", JSON.stringify(hiScoreVal));
 } else {
     hiScoreVal = JSON.parse(hiScore);
     high_score.innerHTML = "High score :" + hiScore;
@@ -108,7 +115,7 @@ window.requestAnimationFrame(main);
 window.addEventListener('keydown', e => {
     SnakeVelocity = { x: 0, y: 1 };
     moveSound.play();
-    // gameSound.play();
+    gameSound.play();
     switch (e.key) {
         case "ArrowUp":
             SnakeVelocity.x = 0;
